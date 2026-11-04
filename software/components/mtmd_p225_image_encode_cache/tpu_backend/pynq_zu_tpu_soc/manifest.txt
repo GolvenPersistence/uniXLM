@@ -1,0 +1,24 @@
+v2 output-buffer stable bundle
+date: 2026-04-13
+directory: export_outbufhpc0live_20260413_104849
+
+files
+- tpu_soc_wrapper.bin
+- tpu_soc_wrapper.bit
+- tpu_soc_wrapper.bit.bin
+- tpu_soc_wrapper.hwh
+- tpu_soc_wrapper_fpga_manager.bif
+
+sha256
+0930682131e29e903ccb1c74e287a8377bae93342fe83d03a1a52647179bf295  tpu_soc_wrapper.bin
+7e336c674c0dab42da2fdada5ac45654a13c40fb389678bff48204d9b7a83238  tpu_soc_wrapper.bit
+0930682131e29e903ccb1c74e287a8377bae93342fe83d03a1a52647179bf295  tpu_soc_wrapper.bit.bin
+c30f54c41ef65af3eeef0f2034a6f5f51820d62bc8217dd6e605b926c5091d9b  tpu_soc_wrapper.hwh
+bcd15f80569f8600d61ba4619351a2d1597b87bfd8adece42a9a2417acbfb2b1  tpu_soc_wrapper_fpga_manager.bif
+
+notes
+- this is the current stable output-buffer / readback-optimized v2 bundle
+- board signoff evidence:
+  - logs/v2_output_buffer_rounds/20260413_1053_outbufhpc0live_seq
+  - logs/v2_output_buffer_rounds/20260413_1215_outbuf_stress
+- use together with the current runtime/demo sources in this repository

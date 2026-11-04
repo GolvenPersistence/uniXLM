@@ -4,7 +4,6 @@
 **/__pycache__/
 gen3_sw/llama.cpp/
 gen3_sw/llama.cpp-build*/
-restored/
 results/
 *.pyc
 *.o

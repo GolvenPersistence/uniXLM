@@ -1,4 +1,4 @@
-"""Create a working llama.cpp tree and connect the supplied Gen3 backend."""
+"""Create a working llama.cpp tree and connect the Gen3 backend."""
 from __future__ import annotations
 
 import argparse
@@ -17,7 +17,7 @@ def main() -> None:
     target = args.output.resolve() if args.output else root / "gen3_sw/llama.cpp"
     if target.exists():
         parser.error("The output directory must not exist.")
-    shutil.copytree(root / "legacy/kv260/base", target)
+    shutil.copytree(root / "software/kv260", target)
     patches = root / "gen3_sw/patches"
     subprocess.run([sys.executable, str(patches / "apply_ggml_gen3.py"), str(target)], check=True)
     if args.cpu_a53:

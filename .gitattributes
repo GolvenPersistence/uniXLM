@@ -1,4 +1,4 @@
-# Preserve distributed bytes so SHA256SUMS also works after Git checkout.
+# Keep source bytes consistent across platforms.
 * -text
 *.sh text eol=lf
 *.py text eol=lf
