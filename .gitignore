@@ -1,0 +1,24 @@
+# Generated build and working trees
+**/build/
+**/out/
+**/__pycache__/
+gen3_sw/llama.cpp/
+gen3_sw/llama.cpp-build*/
+restored/
+results/
+*.pyc
+*.o
+*.obj
+*.exe
+*.a
+*.so
+*.dll
+*.pdb
+*.rar
+*.zip
+*.gguf
+*.safetensors
+*.bit
+*.hwh
+*.xclbin
+.env

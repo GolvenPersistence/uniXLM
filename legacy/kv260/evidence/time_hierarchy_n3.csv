@@ -1,0 +1,493 @@
+preset,phase,node,parent,n,mean_ms,sd_ms,label,method
+baseline,prefill,total,,3,13227.643333333333,31.037564874412276,Reported phase wall,measured_wall
+baseline,prefill,vision,total,3,7835.333333333333,27.42869543622761,Vision encoding wall,measured_wall
+baseline,prefill,language,total,3,5392.31,19.751129081649957,Language prefill + phase boundary remainder,difference
+baseline,prefill,vision/fpga_backend,vision,3,6009.950333333333,13.846261384696053,FPGA backend wall (includes host software),measured_wall
+baseline,prefill,vision/outside_backend,vision,3,1825.383,15.583408516752913,CPU operators/scheduler and scope residual,difference
+baseline,prefill,vision/fpga_backend/mul_mat,vision/fpga_backend,3,6009.638333333333,13.83124095420674,Offloaded MUL_MAT backend nodes,measured_wall
+baseline,prefill,vision/fpga_backend/other,vision/fpga_backend,3,0.31199999999989814,0.03148015247724947,Other FPGA-backend graph work,difference
+baseline,prefill,vision/fpga_backend/mul_mat/weight_cache,vision/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/dynamic_src0,vision/fpga_backend/mul_mat,3,394.46166666666664,2.343270435381554,Dynamic operand conversion and preparation,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/activation,vision/fpga_backend/mul_mat,3,651.9576666666667,4.875436835129065,Activation preparation/quantization,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/gemm_call,vision/fpga_backend/mul_mat,3,4345.695,11.904841998111216,Accelerator runtime invocation (host + device),measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/dequant,vision/fpga_backend/mul_mat,3,607.5573333333333,20.665496469558462,INT32 output rescaling/dequantization,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/setup,vision/fpga_backend/mul_mat,3,0.9116666666666666,0.04969238707622458,MUL_MAT setup,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/cache_lookup,vision/fpga_backend/mul_mat,3,0.09666666666666666,0.007571877794400367,Packed-weight lookup,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/act_src_lookup,vision/fpga_backend/mul_mat,3,0.48766666666666664,0.020108041509140914,Prepared activation lookup,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/prepack,vision/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/gates,vision/fpga_backend/mul_mat,3,1.6513333333333333,0.03764748774265457,Dispatch eligibility checks,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/tiling_stats,vision/fpga_backend/mul_mat,3,0.31133333333333335,0.021221058723196025,Tiling statistics bookkeeping,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/ffn_consume,vision/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/instance_admin,vision/fpga_backend/mul_mat,3,4.327,0.08542247947700919,Batch/instance bookkeeping,measured_wall
+baseline,prefill,vision/fpga_backend/mul_mat/residual,vision/fpga_backend/mul_mat,3,2.1813333333333333,0.11279332131528585,Uninstrumented MUL_MAT residual,difference
+baseline,prefill,language/fpga_backend,language,3,4226.565333333333,4.357519975092566,FPGA backend wall (includes host software),measured_wall
+baseline,prefill,language/outside_backend,language,3,1165.7446666666667,15.433187951079416,CPU operators/scheduler and scope residual,difference
+baseline,prefill,language/fpga_backend/mul_mat,language/fpga_backend,3,4225.618333333334,4.3498048615234834,Offloaded MUL_MAT backend nodes,measured_wall
+baseline,prefill,language/fpga_backend/other,language/fpga_backend,3,0.9469999999998132,0.007810249675692854,Other FPGA-backend graph work,difference
+baseline,prefill,language/fpga_backend/mul_mat/weight_cache,language/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/dynamic_src0,language/fpga_backend/mul_mat,3,400.62966666666665,1.5424141251082084,Dynamic operand conversion and preparation,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/activation,language/fpga_backend/mul_mat,3,632.5556666666666,4.183510049388406,Activation preparation/quantization,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/gemm_call,language/fpga_backend/mul_mat,3,2734.210666666667,2.324446242298021,Accelerator runtime invocation (host + device),measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/dequant,language/fpga_backend/mul_mat,3,436.9476666666667,1.1003787226829316,INT32 output rescaling/dequantization,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/setup,language/fpga_backend/mul_mat,3,3.039,0.057262553208881455,MUL_MAT setup,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/cache_lookup,language/fpga_backend/mul_mat,3,0.47533333333333333,0.010066445913694317,Packed-weight lookup,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/act_src_lookup,language/fpga_backend/mul_mat,3,1.5713333333333332,0.031564748269760266,Prepared activation lookup,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/prepack,language/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/gates,language/fpga_backend/mul_mat,3,3.5366666666666666,0.034195516275285866,Dispatch eligibility checks,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/tiling_stats,language/fpga_backend/mul_mat,3,0.6776666666666666,0.07997708005005769,Tiling statistics bookkeeping,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/ffn_consume,language/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/instance_admin,language/fpga_backend/mul_mat,3,7.441,0.13077843858985302,Batch/instance bookkeeping,measured_wall
+baseline,prefill,language/fpga_backend/mul_mat/residual,language/fpga_backend/mul_mat,3,4.533333333333333,0.052166400425305855,Uninstrumented MUL_MAT residual,difference
+baseline,decode,total,,3,323789.20666666667,8083.761990907021,Reported phase wall,measured_wall
+baseline,decode,graph,total,3,318802.97133333335,8067.88198750789,Decode graph execution,measured_wall
+baseline,decode,outside_graph,total,3,4986.235333333316,37.77190032726787,Decode work outside graph,difference
+baseline,decode,graph/fpga_backend,graph,3,274098.82,216.134683204702,FPGA backend wall (includes host software),measured_wall
+baseline,decode,graph/outside_backend,graph,3,44704.151333333364,7853.3330323546315,CPU operators/scheduler and scope residual,difference
+baseline,decode,graph/fpga_backend/mul_mat,graph/fpga_backend,3,273768.65499999997,210.16689075826153,Offloaded MUL_MAT backend nodes,measured_wall
+baseline,decode,graph/fpga_backend/other,graph/fpga_backend,3,330.16499999999843,7.043227030268519,Other FPGA-backend graph work,difference
+baseline,decode,graph/fpga_backend/mul_mat/weight_cache,graph/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/dynamic_src0,graph/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/activation,graph/fpga_backend/mul_mat,3,2299.693,2.099140062025496,Activation preparation/quantization,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/gemm_call,graph/fpga_backend/mul_mat,3,263312.736,208.36801711395088,Accelerator runtime invocation (host + device),measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/dequant,graph/fpga_backend/mul_mat,3,4482.176333333333,25.033203896691457,INT32 output rescaling/dequantization,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/setup,graph/fpga_backend/mul_mat,3,843.3306666666667,28.828845005191106,MUL_MAT setup,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/cache_lookup,graph/fpga_backend/mul_mat,3,292.053,4.746733929766857,Packed-weight lookup,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/act_src_lookup,graph/fpga_backend/mul_mat,3,76.98666666666666,1.2735173078263717,Prepared activation lookup,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/prepack,graph/fpga_backend/mul_mat,3,49.704,0.4883861177388242,Matrix prepacking,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/gates,graph/fpga_backend/mul_mat,3,809.6876666666667,3.8872409667183416,Dispatch eligibility checks,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/tiling_stats,graph/fpga_backend/mul_mat,3,128.08033333333333,3.987622391016146,Tiling statistics bookkeeping,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/ffn_consume,graph/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/instance_admin,graph/fpga_backend/mul_mat,3,679.6220000000001,3.4375481087542514,Batch/instance bookkeeping,measured_wall
+baseline,decode,graph/fpga_backend/mul_mat/residual,graph/fpga_backend/mul_mat,3,794.5846666666666,8.21290845762531,Uninstrumented MUL_MAT residual,difference
+prefetch,prefill,total,,3,11946.5,84.00350409357932,Reported phase wall,measured_wall
+prefetch,prefill,vision,total,3,7004.666666666667,10.96965511460289,Vision encoding wall,measured_wall
+prefetch,prefill,language,total,3,4941.833333333333,92.27671446975853,Language prefill + phase boundary remainder,difference
+prefetch,prefill,vision/fpga_backend,vision,3,5172.349333333334,29.52619319067957,FPGA backend wall (includes host software),measured_wall
+prefetch,prefill,vision/outside_backend,vision,3,1832.3173333333332,39.02838818518298,CPU operators/scheduler and scope residual,difference
+prefetch,prefill,vision/fpga_backend/mul_mat,vision/fpga_backend,3,5172.0543333333335,29.532635241937264,Offloaded MUL_MAT backend nodes,measured_wall
+prefetch,prefill,vision/fpga_backend/other,vision/fpga_backend,3,0.2950000000003759,0.033151168908684706,Other FPGA-backend graph work,difference
+prefetch,prefill,vision/fpga_backend/mul_mat/weight_cache,vision/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/dynamic_src0,vision/fpga_backend/mul_mat,3,396.714,4.251019171916286,Dynamic operand conversion and preparation,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/activation,vision/fpga_backend/mul_mat,3,654.52,5.132556770265674,Activation preparation/quantization,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/gemm_call,vision/fpga_backend/mul_mat,3,3514.764666666667,22.453698811851307,Accelerator runtime invocation (host + device),measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/dequant,vision/fpga_backend/mul_mat,3,596.032,0.9473737382891804,INT32 output rescaling/dequantization,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/setup,vision/fpga_backend/mul_mat,3,0.9093333333333333,0.031342197327777314,MUL_MAT setup,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/cache_lookup,vision/fpga_backend/mul_mat,3,0.09333333333333334,0.005033222956847171,Packed-weight lookup,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/act_src_lookup,vision/fpga_backend/mul_mat,3,0.47733333333333333,0.0015275252316519481,Prepared activation lookup,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/prepack,vision/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/gates,vision/fpga_backend/mul_mat,3,1.619,0.04203569911396733,Dispatch eligibility checks,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/tiling_stats,vision/fpga_backend/mul_mat,3,0.343,0.043485629810317804,Tiling statistics bookkeeping,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/ffn_consume,vision/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/instance_admin,vision/fpga_backend/mul_mat,3,4.414000000000001,0.24202479211849356,Batch/instance bookkeeping,measured_wall
+prefetch,prefill,vision/fpga_backend/mul_mat/residual,vision/fpga_backend/mul_mat,3,2.1686666666666667,0.05993607705992565,Uninstrumented MUL_MAT residual,difference
+prefetch,prefill,language/fpga_backend,language,3,3753.4893333333334,20.59008247514631,FPGA backend wall (includes host software),measured_wall
+prefetch,prefill,language/outside_backend,language,3,1188.344,71.7302999645201,CPU operators/scheduler and scope residual,difference
+prefetch,prefill,language/fpga_backend/mul_mat,language/fpga_backend,3,3752.4443333333334,20.54272633642718,Offloaded MUL_MAT backend nodes,measured_wall
+prefetch,prefill,language/fpga_backend/other,language/fpga_backend,3,1.044999999999921,0.05955669567716774,Other FPGA-backend graph work,difference
+prefetch,prefill,language/fpga_backend/mul_mat/weight_cache,language/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/dynamic_src0,language/fpga_backend/mul_mat,3,404.58666666666664,8.915907263612233,Dynamic operand conversion and preparation,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/activation,language/fpga_backend/mul_mat,3,636.276,4.826725287397232,Activation preparation/quantization,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/gemm_call,language/fpga_backend/mul_mat,3,2250.9563333333335,5.951546381683785,Accelerator runtime invocation (host + device),measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/dequant,language/fpga_backend/mul_mat,3,439.296,2.0461326936442803,INT32 output rescaling/dequantization,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/setup,language/fpga_backend/mul_mat,3,3.048,0.09142756695876793,MUL_MAT setup,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/cache_lookup,language/fpga_backend/mul_mat,3,0.503,0.052163205422979926,Packed-weight lookup,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/act_src_lookup,language/fpga_backend/mul_mat,3,1.524,0.00866025403784433,Prepared activation lookup,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/prepack,language/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/gates,language/fpga_backend/mul_mat,3,3.636,0.2633021078533174,Dispatch eligibility checks,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/tiling_stats,language/fpga_backend/mul_mat,3,0.6483333333333333,0.05173329037798902,Tiling statistics bookkeeping,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/ffn_consume,language/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/instance_admin,language/fpga_backend/mul_mat,3,7.482666666666667,0.21075420122344746,Batch/instance bookkeeping,measured_wall
+prefetch,prefill,language/fpga_backend/mul_mat/residual,language/fpga_backend/mul_mat,3,4.487333333333333,0.2414256269192093,Uninstrumented MUL_MAT residual,difference
+prefetch,decode,total,,3,305504.32666666666,14767.781879017344,Reported phase wall,measured_wall
+prefetch,decode,graph,total,3,300486.08433333336,14685.891236362088,Decode graph execution,measured_wall
+prefetch,decode,outside_graph,total,3,5018.242333333338,81.89633763078248,Decode work outside graph,difference
+prefetch,decode,graph/fpga_backend,graph,3,253405.82366666666,126.04533383404056,FPGA backend wall (includes host software),measured_wall
+prefetch,decode,graph/outside_backend,graph,3,47080.26066666667,14633.770570229972,CPU operators/scheduler and scope residual,difference
+prefetch,decode,graph/fpga_backend/mul_mat,graph/fpga_backend,3,253071.194,119.95975886521474,Offloaded MUL_MAT backend nodes,measured_wall
+prefetch,decode,graph/fpga_backend/other,graph/fpga_backend,3,334.6296666666749,6.206120554208523,Other FPGA-backend graph work,difference
+prefetch,decode,graph/fpga_backend/mul_mat/weight_cache,graph/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/dynamic_src0,graph/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/activation,graph/fpga_backend/mul_mat,3,2291.159,5.997836193161687,Activation preparation/quantization,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/gemm_call,graph/fpga_backend/mul_mat,3,242620.917,108.80701526555255,Accelerator runtime invocation (host + device),measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/dequant,graph/fpga_backend/mul_mat,3,4509.595,24.326656017627734,INT32 output rescaling/dequantization,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/setup,graph/fpga_backend/mul_mat,3,860.8803333333334,1.8782269120991006,MUL_MAT setup,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/cache_lookup,graph/fpga_backend/mul_mat,3,280.34833333333336,4.957413270379365,Packed-weight lookup,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/act_src_lookup,graph/fpga_backend/mul_mat,3,76.28,0.5021643157373883,Prepared activation lookup,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/prepack,graph/fpga_backend/mul_mat,3,48.803666666666665,0.6007797710753365,Matrix prepacking,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/gates,graph/fpga_backend/mul_mat,3,771.876,6.028435617969197,Dispatch eligibility checks,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/tiling_stats,graph/fpga_backend/mul_mat,3,128.331,2.6728357600122052,Tiling statistics bookkeeping,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/ffn_consume,graph/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/instance_admin,graph/fpga_backend/mul_mat,3,682.5293333333333,6.186175743812448,Batch/instance bookkeeping,measured_wall
+prefetch,decode,graph/fpga_backend/mul_mat/residual,graph/fpga_backend/mul_mat,3,800.4746666666667,22.75979526123497,Uninstrumented MUL_MAT residual,difference
+four_channel,prefill,total,,3,10877.003333333334,36.502397638145354,Reported phase wall,measured_wall
+four_channel,prefill,vision,total,3,6375.0,34.044089061098404,Vision encoding wall,measured_wall
+four_channel,prefill,language,total,3,4502.003333333333,31.74752011312559,Language prefill + phase boundary remainder,difference
+four_channel,prefill,vision/fpga_backend,vision,3,4562.810333333333,39.16882079324478,FPGA backend wall (includes host software),measured_wall
+four_channel,prefill,vision/outside_backend,vision,3,1812.1896666666669,37.4706221236495,CPU operators/scheduler and scope residual,difference
+four_channel,prefill,vision/fpga_backend/mul_mat,vision/fpga_backend,3,4562.514666666667,39.15778963799319,Offloaded MUL_MAT backend nodes,measured_wall
+four_channel,prefill,vision/fpga_backend/other,vision/fpga_backend,3,0.2956666666662689,0.011060440015322625,Other FPGA-backend graph work,difference
+four_channel,prefill,vision/fpga_backend/mul_mat/weight_cache,vision/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/dynamic_src0,vision/fpga_backend/mul_mat,3,394.87166666666667,2.770863824393622,Dynamic operand conversion and preparation,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/activation,vision/fpga_backend/mul_mat,3,649.412,12.636755002768748,Activation preparation/quantization,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/gemm_call,vision/fpga_backend/mul_mat,3,2906.4596666666666,17.782599285068844,Accelerator runtime invocation (host + device),measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/dequant,vision/fpga_backend/mul_mat,3,601.7706666666667,10.147104135335073,INT32 output rescaling/dequantization,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/setup,vision/fpga_backend/mul_mat,3,0.9336666666666666,0.05381759315812378,MUL_MAT setup,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/cache_lookup,vision/fpga_backend/mul_mat,3,0.09666666666666666,0.00650640709864771,Packed-weight lookup,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/act_src_lookup,vision/fpga_backend/mul_mat,3,0.483,0.0010000000000000009,Prepared activation lookup,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/prepack,vision/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/gates,vision/fpga_backend/mul_mat,3,1.558,0.04107310555582576,Dispatch eligibility checks,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/tiling_stats,vision/fpga_backend/mul_mat,3,0.3,0.01646207763315431,Tiling statistics bookkeeping,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/ffn_consume,vision/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/instance_admin,vision/fpga_backend/mul_mat,3,4.379,0.2575286391840719,Batch/instance bookkeeping,measured_wall
+four_channel,prefill,vision/fpga_backend/mul_mat/residual,vision/fpga_backend/mul_mat,3,2.2503333333333333,0.06724829613702735,Uninstrumented MUL_MAT residual,difference
+four_channel,prefill,language/fpga_backend,language,3,3333.4583333333335,3.1688044012423657,FPGA backend wall (includes host software),measured_wall
+four_channel,prefill,language/outside_backend,language,3,1168.545,29.061812538105347,CPU operators/scheduler and scope residual,difference
+four_channel,prefill,language/fpga_backend/mul_mat,language/fpga_backend,3,3332.1150000000002,2.5477674540664923,Offloaded MUL_MAT backend nodes,measured_wall
+four_channel,prefill,language/fpga_backend/other,language/fpga_backend,3,1.3433333333332484,0.6210429400074959,Other FPGA-backend graph work,difference
+four_channel,prefill,language/fpga_backend/mul_mat/weight_cache,language/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/dynamic_src0,language/fpga_backend/mul_mat,3,405.0593333333333,7.409800424662819,Dynamic operand conversion and preparation,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/activation,language/fpga_backend/mul_mat,3,634.6553333333334,2.2040209466639524,Activation preparation/quantization,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/gemm_call,language/fpga_backend/mul_mat,3,1831.642,4.667617057985736,Accelerator runtime invocation (host + device),measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/dequant,language/fpga_backend/mul_mat,3,439.552,1.809029850499989,INT32 output rescaling/dequantization,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/setup,language/fpga_backend/mul_mat,3,3.026666666666667,0.03906831623366088,MUL_MAT setup,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/cache_lookup,language/fpga_backend/mul_mat,3,0.4653333333333333,0.013051181300301242,Packed-weight lookup,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/act_src_lookup,language/fpga_backend/mul_mat,3,1.5666666666666667,0.03813572253587619,Prepared activation lookup,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/prepack,language/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/gates,language/fpga_backend/mul_mat,3,3.4046666666666665,0.018717193521822068,Dispatch eligibility checks,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/tiling_stats,language/fpga_backend/mul_mat,3,0.646,0.0744848977981443,Tiling statistics bookkeeping,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/ffn_consume,language/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/instance_admin,language/fpga_backend/mul_mat,3,7.514333333333333,0.23320448823582557,Batch/instance bookkeeping,measured_wall
+four_channel,prefill,language/fpga_backend/mul_mat/residual,language/fpga_backend/mul_mat,3,4.583,0.19002368273454748,Uninstrumented MUL_MAT residual,difference
+four_channel,decode,total,,3,180045.25333333333,2929.087484479304,Reported phase wall,measured_wall
+four_channel,decode,graph,total,3,175053.32666666666,2924.9203197416064,Decode graph execution,measured_wall
+four_channel,decode,outside_graph,total,3,4991.926666666666,4.998467498474172,Decode work outside graph,difference
+four_channel,decode,graph/fpga_backend,graph,3,136338.18333333335,368.34969452183924,FPGA backend wall (includes host software),measured_wall
+four_channel,decode,graph/outside_backend,graph,3,38715.14333333332,3230.1898514022873,CPU operators/scheduler and scope residual,difference
+four_channel,decode,graph/fpga_backend/mul_mat,graph/fpga_backend,3,136001.82766666665,368.9341976305979,Offloaded MUL_MAT backend nodes,measured_wall
+four_channel,decode,graph/fpga_backend/other,graph/fpga_backend,3,336.3556666666797,0.7690710847128502,Other FPGA-backend graph work,difference
+four_channel,decode,graph/fpga_backend/mul_mat/weight_cache,graph/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/dynamic_src0,graph/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/activation,graph/fpga_backend/mul_mat,3,2302.2903333333334,9.56252552066307,Activation preparation/quantization,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/gemm_call,graph/fpga_backend/mul_mat,3,125559.05366666667,348.50964251270824,Accelerator runtime invocation (host + device),measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/dequant,graph/fpga_backend/mul_mat,3,4506.215333333334,24.75178992180868,INT32 output rescaling/dequantization,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/setup,graph/fpga_backend/mul_mat,3,860.082,11.77958844781938,MUL_MAT setup,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/cache_lookup,graph/fpga_backend/mul_mat,3,277.42133333333334,1.7930070644962173,Packed-weight lookup,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/act_src_lookup,graph/fpga_backend/mul_mat,3,76.42466666666667,0.811982963696491,Prepared activation lookup,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/prepack,graph/fpga_backend/mul_mat,3,49.013,0.8366666002656008,Matrix prepacking,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/gates,graph/fpga_backend/mul_mat,3,776.2076666666667,1.7170644522944718,Dispatch eligibility checks,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/tiling_stats,graph/fpga_backend/mul_mat,3,127.54766666666667,1.8620849425666242,Tiling statistics bookkeeping,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/ffn_consume,graph/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/instance_admin,graph/fpga_backend/mul_mat,3,674.5413333333333,5.542207171635957,Batch/instance bookkeeping,measured_wall
+four_channel,decode,graph/fpga_backend/mul_mat/residual,graph/fpga_backend/mul_mat,3,793.0306666666667,9.919742654592064,Uninstrumented MUL_MAT residual,difference
+activation_transfer,prefill,total,,3,10159.356666666667,373.6814290720548,Reported phase wall,measured_wall
+activation_transfer,prefill,vision,total,3,5546.0,109.34349546269316,Vision encoding wall,measured_wall
+activation_transfer,prefill,language,total,3,4613.356666666667,482.55616298347394,Language prefill + phase boundary remainder,difference
+activation_transfer,prefill,vision/fpga_backend,vision,3,3722.4103333333333,107.03827714576362,FPGA backend wall (includes host software),measured_wall
+activation_transfer,prefill,vision/outside_backend,vision,3,1823.5896666666667,20.12577388160108,CPU operators/scheduler and scope residual,difference
+activation_transfer,prefill,vision/fpga_backend/mul_mat,vision/fpga_backend,3,3722.107,107.02197293546782,Offloaded MUL_MAT backend nodes,measured_wall
+activation_transfer,prefill,vision/fpga_backend/other,vision/fpga_backend,3,0.30333333333343643,0.016502525059145633,Other FPGA-backend graph work,difference
+activation_transfer,prefill,vision/fpga_backend/mul_mat/weight_cache,vision/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/dynamic_src0,vision/fpga_backend/mul_mat,3,396.0853333333333,2.4483636031711753,Dynamic operand conversion and preparation,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/activation,vision/fpga_backend/mul_mat,3,650.1086666666666,3.1794141493887036,Activation preparation/quantization,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/gemm_call,vision/fpga_backend/mul_mat,3,2061.982666666667,120.80080300367773,Accelerator runtime invocation (host + device),measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/dequant,vision/fpga_backend/mul_mat,3,603.667,9.979647839478142,INT32 output rescaling/dequantization,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/setup,vision/fpga_backend/mul_mat,3,0.9473333333333334,0.04045161719058128,MUL_MAT setup,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/cache_lookup,vision/fpga_backend/mul_mat,3,0.09866666666666667,0.005131601439446883,Packed-weight lookup,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/act_src_lookup,vision/fpga_backend/mul_mat,3,0.4756666666666666,0.0035118845842842493,Prepared activation lookup,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/prepack,vision/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/gates,vision/fpga_backend/mul_mat,3,1.8123333333333334,0.011590225767142432,Dispatch eligibility checks,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/tiling_stats,vision/fpga_backend/mul_mat,3,0.3436666666666667,0.016072751268321573,Tiling statistics bookkeeping,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/ffn_consume,vision/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/instance_admin,vision/fpga_backend/mul_mat,3,4.360666666666667,0.1276727587754464,Batch/instance bookkeeping,measured_wall
+activation_transfer,prefill,vision/fpga_backend/mul_mat/residual,vision/fpga_backend/mul_mat,3,2.225,0.1079212675981894,Uninstrumented MUL_MAT residual,difference
+activation_transfer,prefill,language/fpga_backend,language,3,3223.3786666666665,58.54361282269259,FPGA backend wall (includes host software),measured_wall
+activation_transfer,prefill,language/outside_backend,language,3,1389.978,424.2188703240342,CPU operators/scheduler and scope residual,difference
+activation_transfer,prefill,language/fpga_backend/mul_mat,language/fpga_backend,3,3222.379,58.54768554776536,Offloaded MUL_MAT backend nodes,measured_wall
+activation_transfer,prefill,language/fpga_backend/other,language/fpga_backend,3,0.9996666666664472,0.01436430761744461,Other FPGA-backend graph work,difference
+activation_transfer,prefill,language/fpga_backend/mul_mat/weight_cache,language/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/dynamic_src0,language/fpga_backend/mul_mat,3,403.0706666666667,3.0713290825525927,Dynamic operand conversion and preparation,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/activation,language/fpga_backend/mul_mat,3,640.325,16.056354100479947,Activation preparation/quantization,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/gemm_call,language/fpga_backend/mul_mat,3,1719.686,35.112477967241226,Accelerator runtime invocation (host + device),measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/dequant,language/fpga_backend/mul_mat,3,437.1793333333333,4.9135173077270595,INT32 output rescaling/dequantization,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/setup,language/fpga_backend/mul_mat,3,3.050666666666667,0.04135617648348713,MUL_MAT setup,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/cache_lookup,language/fpga_backend/mul_mat,3,0.48066666666666663,0.009865765724632504,Packed-weight lookup,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/act_src_lookup,language/fpga_backend/mul_mat,3,1.5376666666666665,0.020132891827388685,Prepared activation lookup,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/prepack,language/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/gates,language/fpga_backend/mul_mat,3,4.163333333333333,0.16124928940411926,Dispatch eligibility checks,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/tiling_stats,language/fpga_backend/mul_mat,3,0.673,0.01899999999999996,Tiling statistics bookkeeping,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/ffn_consume,language/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/instance_admin,language/fpga_backend/mul_mat,3,7.725666666666666,0.17813010226610612,Batch/instance bookkeeping,measured_wall
+activation_transfer,prefill,language/fpga_backend/mul_mat/residual,language/fpga_backend/mul_mat,3,4.487333333333333,0.20653409726564104,Uninstrumented MUL_MAT residual,difference
+activation_transfer,decode,total,,3,172293.87,13488.855311152236,Reported phase wall,measured_wall
+activation_transfer,decode,graph,total,3,167315.00100000002,13484.667193195244,Decode graph execution,measured_wall
+activation_transfer,decode,outside_graph,total,3,4978.868999999987,35.06664791506621,Decode work outside graph,difference
+activation_transfer,decode,graph/fpga_backend,graph,3,125573.17566666666,372.4152235211825,FPGA backend wall (includes host software),measured_wall
+activation_transfer,decode,graph/outside_backend,graph,3,41741.82533333334,13157.82169783587,CPU operators/scheduler and scope residual,difference
+activation_transfer,decode,graph/fpga_backend/mul_mat,graph/fpga_backend,3,125248.05,370.89385091829524,Offloaded MUL_MAT backend nodes,measured_wall
+activation_transfer,decode,graph/fpga_backend/other,graph/fpga_backend,3,325.12566666666436,2.511714421133195,Other FPGA-backend graph work,difference
+activation_transfer,decode,graph/fpga_backend/mul_mat/weight_cache,graph/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/dynamic_src0,graph/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/activation,graph/fpga_backend/mul_mat,3,2302.236,10.466930352304878,Activation preparation/quantization,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/gemm_call,graph/fpga_backend/mul_mat,3,114677.455,336.2983756309254,Accelerator runtime invocation (host + device),measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/dequant,graph/fpga_backend/mul_mat,3,4532.049,46.68295624743569,INT32 output rescaling/dequantization,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/setup,graph/fpga_backend/mul_mat,3,836.2573333333333,21.695005746330942,MUL_MAT setup,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/cache_lookup,graph/fpga_backend/mul_mat,3,280.88,7.522634910721115,Packed-weight lookup,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/act_src_lookup,graph/fpga_backend/mul_mat,3,76.08200000000001,0.19612241075409817,Prepared activation lookup,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/prepack,graph/fpga_backend/mul_mat,3,49.54866666666667,1.0123548455622362,Matrix prepacking,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/gates,graph/fpga_backend/mul_mat,3,873.6733333333333,19.324797704848883,Dispatch eligibility checks,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/tiling_stats,graph/fpga_backend/mul_mat,3,133.63,7.366269544348749,Tiling statistics bookkeeping,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/ffn_consume,graph/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/instance_admin,graph/fpga_backend/mul_mat,3,682.4713333333333,4.648147408735326,Batch/instance bookkeeping,measured_wall
+activation_transfer,decode,graph/fpga_backend/mul_mat/residual,graph/fpga_backend/mul_mat,3,803.768,18.287442248712644,Uninstrumented MUL_MAT residual,difference
+hw_tiling,prefill,total,,3,9354.56,105.48052948293403,Reported phase wall,measured_wall
+hw_tiling,prefill,vision,total,3,5182.333333333333,203.29863091849225,Vision encoding wall,measured_wall
+hw_tiling,prefill,language,total,3,4172.2266666666665,108.58050208639293,Language prefill + phase boundary remainder,difference
+hw_tiling,prefill,vision/fpga_backend,vision,3,3347.4263333333333,158.14826282426662,FPGA backend wall (includes host software),measured_wall
+hw_tiling,prefill,vision/outside_backend,vision,3,1834.907,52.929516349575714,CPU operators/scheduler and scope residual,difference
+hw_tiling,prefill,vision/fpga_backend/mul_mat,vision/fpga_backend,3,3347.1203333333333,158.1441319883014,Offloaded MUL_MAT backend nodes,measured_wall
+hw_tiling,prefill,vision/fpga_backend/other,vision/fpga_backend,3,0.30600000000004,0.015716233645520692,Other FPGA-backend graph work,difference
+hw_tiling,prefill,vision/fpga_backend/mul_mat/weight_cache,vision/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/dynamic_src0,vision/fpga_backend/mul_mat,3,394.8976666666667,2.010222458668055,Dynamic operand conversion and preparation,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/activation,vision/fpga_backend/mul_mat,3,666.4576666666667,7.997131006388068,Activation preparation/quantization,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/gemm_call,vision/fpga_backend/mul_mat,3,1670.0836666666667,155.16629725018691,Accelerator runtime invocation (host + device),measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/dequant,vision/fpga_backend/mul_mat,3,604.9873333333334,5.557041419076627,INT32 output rescaling/dequantization,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/setup,vision/fpga_backend/mul_mat,3,0.9146666666666667,0.021197484127446212,MUL_MAT setup,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/cache_lookup,vision/fpga_backend/mul_mat,3,0.09933333333333333,0.007234178138070233,Packed-weight lookup,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/act_src_lookup,vision/fpga_backend/mul_mat,3,0.48133333333333334,0.0030550504633038962,Prepared activation lookup,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/prepack,vision/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/gates,vision/fpga_backend/mul_mat,3,1.9003333333333334,0.039004273270160233,Dispatch eligibility checks,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/tiling_stats,vision/fpga_backend/mul_mat,3,0.32466666666666666,0.045081407845511345,Tiling statistics bookkeeping,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/ffn_consume,vision/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/instance_admin,vision/fpga_backend/mul_mat,3,4.409,0.01899999999999994,Batch/instance bookkeeping,measured_wall
+hw_tiling,prefill,vision/fpga_backend/mul_mat/residual,vision/fpga_backend/mul_mat,3,2.5653333333333332,0.13480479714510651,Uninstrumented MUL_MAT residual,difference
+hw_tiling,prefill,language/fpga_backend,language,3,2966.1096666666667,17.079875126397628,FPGA backend wall (includes host software),measured_wall
+hw_tiling,prefill,language/outside_backend,language,3,1206.117,91.83940979231002,CPU operators/scheduler and scope residual,difference
+hw_tiling,prefill,language/fpga_backend/mul_mat,language/fpga_backend,3,2965.079333333333,17.160944797222957,Offloaded MUL_MAT backend nodes,measured_wall
+hw_tiling,prefill,language/fpga_backend/other,language/fpga_backend,3,1.0303333333334497,0.09712020043909046,Other FPGA-backend graph work,difference
+hw_tiling,prefill,language/fpga_backend/mul_mat/weight_cache,language/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/dynamic_src0,language/fpga_backend/mul_mat,3,403.88166666666666,4.574377152502115,Dynamic operand conversion and preparation,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/activation,language/fpga_backend/mul_mat,3,633.3796666666667,7.5027055342279025,Activation preparation/quantization,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/gemm_call,language/fpga_backend/mul_mat,3,1468.7736666666667,9.321336402755378,Accelerator runtime invocation (host + device),measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/dequant,language/fpga_backend/mul_mat,3,437.26866666666666,4.297692442850407,INT32 output rescaling/dequantization,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/setup,language/fpga_backend/mul_mat,3,2.9833333333333334,0.11962162569256991,MUL_MAT setup,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/cache_lookup,language/fpga_backend/mul_mat,3,0.48766666666666664,0.01594783161854093,Packed-weight lookup,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/act_src_lookup,language/fpga_backend/mul_mat,3,1.5013333333333334,0.014047538337136997,Prepared activation lookup,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/prepack,language/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/gates,language/fpga_backend/mul_mat,3,4.001,0.16700598791660146,Dispatch eligibility checks,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/tiling_stats,language/fpga_backend/mul_mat,3,0.5866666666666667,0.007767453465154036,Tiling statistics bookkeeping,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/ffn_consume,language/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/instance_admin,language/fpga_backend/mul_mat,3,7.304,0.058412327466040796,Batch/instance bookkeeping,measured_wall
+hw_tiling,prefill,language/fpga_backend/mul_mat/residual,language/fpga_backend/mul_mat,3,4.911666666666667,0.11556095072875362,Uninstrumented MUL_MAT residual,difference
+hw_tiling,decode,total,,3,116376.41333333333,1906.6317419033317,Reported phase wall,measured_wall
+hw_tiling,decode,graph,total,3,111392.646,1912.7519650304937,Decode graph execution,measured_wall
+hw_tiling,decode,outside_graph,total,3,4983.767333333337,11.17607987326029,Decode work outside graph,difference
+hw_tiling,decode,graph/fpga_backend,graph,3,75416.82400000001,118.12087495443372,FPGA backend wall (includes host software),measured_wall
+hw_tiling,decode,graph/outside_backend,graph,3,35975.82199999999,1841.9054568972874,CPU operators/scheduler and scope residual,difference
+hw_tiling,decode,graph/fpga_backend/mul_mat,graph/fpga_backend,3,75098.99733333333,120.46433899844708,Offloaded MUL_MAT backend nodes,measured_wall
+hw_tiling,decode,graph/fpga_backend/other,graph/fpga_backend,3,317.8266666666702,2.6044539414818844,Other FPGA-backend graph work,difference
+hw_tiling,decode,graph/fpga_backend/mul_mat/weight_cache,graph/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/dynamic_src0,graph/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/activation,graph/fpga_backend/mul_mat,3,2300.935,18.026513500951868,Activation preparation/quantization,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/gemm_call,graph/fpga_backend/mul_mat,3,64717.37066666667,98.53632135072647,Accelerator runtime invocation (host + device),measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/dequant,graph/fpga_backend/mul_mat,3,4470.613666666667,22.011238727825408,INT32 output rescaling/dequantization,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/setup,graph/fpga_backend/mul_mat,3,813.2123333333333,15.696410109745937,MUL_MAT setup,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/cache_lookup,graph/fpga_backend/mul_mat,3,279.4046666666667,10.276406586610571,Packed-weight lookup,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/act_src_lookup,graph/fpga_backend/mul_mat,3,74.278,1.8304237214371957,Prepared activation lookup,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/prepack,graph/fpga_backend/mul_mat,3,47.824666666666666,0.6880845393796688,Matrix prepacking,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/gates,graph/fpga_backend/mul_mat,3,850.9603333333333,1.64213651482859,Dispatch eligibility checks,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/tiling_stats,graph/fpga_backend/mul_mat,3,122.90366666666667,3.576188240757652,Tiling statistics bookkeeping,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/ffn_consume,graph/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/instance_admin,graph/fpga_backend/mul_mat,3,668.908,5.361598735451982,Batch/instance bookkeeping,measured_wall
+hw_tiling,decode,graph/fpga_backend/mul_mat/residual,graph/fpga_backend/mul_mat,3,752.5863333333333,1.875217942889139,Uninstrumented MUL_MAT residual,difference
+smol_p207,prefill,total,,3,9312.313333333334,161.977895199726,Reported phase wall,measured_wall
+smol_p207,prefill,vision,total,3,4958.0,142.12318600425476,Vision encoding wall,measured_wall
+smol_p207,prefill,language,total,3,4354.3133333333335,63.10006761750243,Language prefill + phase boundary remainder,difference
+smol_p207,prefill,vision/fpga_backend,vision,3,3137.642,143.59896474557206,FPGA backend wall (includes host software),measured_wall
+smol_p207,prefill,vision/outside_backend,vision,3,1820.358,15.301198515149064,CPU operators/scheduler and scope residual,difference
+smol_p207,prefill,vision/fpga_backend/mul_mat,vision/fpga_backend,3,3137.3469999999998,143.60143237795359,Offloaded MUL_MAT backend nodes,measured_wall
+smol_p207,prefill,vision/fpga_backend/other,vision/fpga_backend,3,0.29500000000007276,0.013747727084840131,Other FPGA-backend graph work,difference
+smol_p207,prefill,vision/fpga_backend/mul_mat/weight_cache,vision/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/dynamic_src0,vision/fpga_backend/mul_mat,3,396.06533333333334,0.7091335088213844,Dynamic operand conversion and preparation,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/activation,vision/fpga_backend/mul_mat,3,651.964,3.8499840259408997,Activation preparation/quantization,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/gemm_call,vision/fpga_backend/mul_mat,3,1481.7256666666667,145.6529590579379,Accelerator runtime invocation (host + device),measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/dequant,vision/fpga_backend/mul_mat,3,598.1246666666667,3.7031233213779617,INT32 output rescaling/dequantization,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/setup,vision/fpga_backend/mul_mat,3,1.0336666666666667,0.03647373484212072,MUL_MAT setup,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/cache_lookup,vision/fpga_backend/mul_mat,3,0.089,0.006557438524302,Packed-weight lookup,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/act_src_lookup,vision/fpga_backend/mul_mat,3,0.6746666666666666,0.025501633934580187,Prepared activation lookup,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/prepack,vision/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/gates,vision/fpga_backend/mul_mat,3,0.246,0.005291502622129186,Dispatch eligibility checks,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/tiling_stats,vision/fpga_backend/mul_mat,3,0.33699999999999997,0.03011644069275119,Tiling statistics bookkeeping,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/ffn_consume,vision/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/instance_admin,vision/fpga_backend/mul_mat,3,4.254,0.0733689307541008,Batch/instance bookkeeping,measured_wall
+smol_p207,prefill,vision/fpga_backend/mul_mat/residual,vision/fpga_backend/mul_mat,3,2.8333333333333335,0.023028967265887972,Uninstrumented MUL_MAT residual,difference
+smol_p207,prefill,language/fpga_backend,language,3,896.569,17.28919789926649,FPGA backend wall (includes host software),measured_wall
+smol_p207,prefill,language/outside_backend,language,3,3457.7443333333335,61.413500936954996,CPU operators/scheduler and scope residual,difference
+smol_p207,prefill,language/fpga_backend/mul_mat,language/fpga_backend,3,895.8266666666667,17.298467860863706,Offloaded MUL_MAT backend nodes,measured_wall
+smol_p207,prefill,language/fpga_backend/other,language/fpga_backend,3,0.7423333333333252,0.035019042438865985,Other FPGA-backend graph work,difference
+smol_p207,prefill,language/fpga_backend/mul_mat/weight_cache,language/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/dynamic_src0,language/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/activation,language/fpga_backend/mul_mat,3,253.81966666666668,1.106887678734086,Activation preparation/quantization,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/gemm_call,language/fpga_backend/mul_mat,3,417.9436666666667,15.062806256914204,Accelerator runtime invocation (host + device),measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/dequant,language/fpga_backend/mul_mat,3,216.95866666666666,2.0340689106648626,INT32 output rescaling/dequantization,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/setup,language/fpga_backend/mul_mat,3,2.353333333333333,0.030892285984260418,MUL_MAT setup,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/cache_lookup,language/fpga_backend/mul_mat,3,0.44066666666666665,0.014640127503998512,Packed-weight lookup,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/act_src_lookup,language/fpga_backend/mul_mat,3,1.541,0.08061637550770925,Prepared activation lookup,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/prepack,language/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/gates,language/fpga_backend/mul_mat,3,0.20133333333333334,0.004725815626252602,Dispatch eligibility checks,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/tiling_stats,language/fpga_backend/mul_mat,3,0.23099999999999998,0.01571623364550171,Tiling statistics bookkeeping,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/ffn_consume,language/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/instance_admin,language/fpga_backend/mul_mat,3,0.8226666666666667,0.01563116545025776,Batch/instance bookkeeping,measured_wall
+smol_p207,prefill,language/fpga_backend/mul_mat/residual,language/fpga_backend/mul_mat,3,1.516,0.05002999100539589,Uninstrumented MUL_MAT residual,difference
+smol_p207,decode,total,,3,108496.15666666666,710.9442483298745,Reported phase wall,measured_wall
+smol_p207,decode,graph,total,3,103568.528,763.2652880643794,Decode graph execution,measured_wall
+smol_p207,decode,outside_graph,total,3,4927.6286666666665,52.87628823332346,Decode work outside graph,difference
+smol_p207,decode,graph/fpga_backend,graph,3,66065.09133333333,75.75894308484513,FPGA backend wall (includes host software),measured_wall
+smol_p207,decode,graph/outside_backend,graph,3,37503.43666666667,716.1330572828873,CPU operators/scheduler and scope residual,difference
+smol_p207,decode,graph/fpga_backend/mul_mat,graph/fpga_backend,3,65724.64433333333,42.36306611109917,Offloaded MUL_MAT backend nodes,measured_wall
+smol_p207,decode,graph/fpga_backend/other,graph/fpga_backend,3,340.4469999999953,33.82880404329581,Other FPGA-backend graph work,difference
+smol_p207,decode,graph/fpga_backend/mul_mat/weight_cache,graph/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/dynamic_src0,graph/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/activation,graph/fpga_backend/mul_mat,3,2299.4473333333335,14.481318874099108,Activation preparation/quantization,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/gemm_call,graph/fpga_backend/mul_mat,3,56172.54833333333,25.950776757803872,Accelerator runtime invocation (host + device),measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/dequant,graph/fpga_backend/mul_mat,3,4429.124666666667,35.324870478648755,INT32 output rescaling/dequantization,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/setup,graph/fpga_backend/mul_mat,3,790.643,5.065368594682952,MUL_MAT setup,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/cache_lookup,graph/fpga_backend/mul_mat,3,267.47633333333334,4.888260460872917,Packed-weight lookup,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/act_src_lookup,graph/fpga_backend/mul_mat,3,72.98533333333333,12.82215256239503,Prepared activation lookup,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/prepack,graph/fpga_backend/mul_mat,3,48.226333333333336,0.3737864809397626,Matrix prepacking,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/gates,graph/fpga_backend/mul_mat,3,71.92033333333333,0.5290693086291588,Dispatch eligibility checks,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/tiling_stats,graph/fpga_backend/mul_mat,3,126.39966666666666,5.221359720736858,Tiling statistics bookkeeping,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/ffn_consume,graph/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/instance_admin,graph/fpga_backend/mul_mat,3,663.7683333333333,3.423850220633675,Batch/instance bookkeeping,measured_wall
+smol_p207,decode,graph/fpga_backend/mul_mat/residual,graph/fpga_backend/mul_mat,3,782.1043333333333,23.170709102945718,Uninstrumented MUL_MAT residual,difference
+smol_p302d,prefill,total,,3,9753.26,502.7179408972787,Reported phase wall,measured_wall
+smol_p302d,prefill,vision,total,3,5428.333333333333,511.9104739437682,Vision encoding wall,measured_wall
+smol_p302d,prefill,language,total,3,4324.926666666666,9.31404495014585,Language prefill + phase boundary remainder,difference
+smol_p302d,prefill,vision/fpga_backend,vision,3,3234.9410000000003,196.67100919301748,FPGA backend wall (includes host software),measured_wall
+smol_p302d,prefill,vision/outside_backend,vision,3,2193.392333333333,318.6102857572765,CPU operators/scheduler and scope residual,difference
+smol_p302d,prefill,vision/fpga_backend/mul_mat,vision/fpga_backend,3,3234.648,196.66794092835772,Offloaded MUL_MAT backend nodes,measured_wall
+smol_p302d,prefill,vision/fpga_backend/other,vision/fpga_backend,3,0.29300000000012005,0.0087177978868752,Other FPGA-backend graph work,difference
+smol_p302d,prefill,vision/fpga_backend/mul_mat/weight_cache,vision/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/dynamic_src0,vision/fpga_backend/mul_mat,3,401.445,5.009508458920886,Dynamic operand conversion and preparation,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/activation,vision/fpga_backend/mul_mat,3,727.738,55.565038216490045,Activation preparation/quantization,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/gemm_call,vision/fpga_backend/mul_mat,3,1494.6006666666667,134.9997975640457,Accelerator runtime invocation (host + device),measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/dequant,vision/fpga_backend/mul_mat,3,601.2813333333334,3.153895739134941,INT32 output rescaling/dequantization,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/setup,vision/fpga_backend/mul_mat,3,1.047,0.012999999999999977,MUL_MAT setup,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/cache_lookup,vision/fpga_backend/mul_mat,3,0.08933333333333333,0.010016652800877815,Packed-weight lookup,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/act_src_lookup,vision/fpga_backend/mul_mat,3,0.6703333333333333,0.007571877794400371,Prepared activation lookup,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/prepack,vision/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/gates,vision/fpga_backend/mul_mat,3,0.251,0.0040000000000000036,Dispatch eligibility checks,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/tiling_stats,vision/fpga_backend/mul_mat,3,0.364,0.01442220510185597,Tiling statistics bookkeeping,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/ffn_consume,vision/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/instance_admin,vision/fpga_backend/mul_mat,3,4.331666666666667,0.07982689605222863,Batch/instance bookkeeping,measured_wall
+smol_p302d,prefill,vision/fpga_backend/mul_mat/residual,vision/fpga_backend/mul_mat,3,2.8293333333333335,0.040216083018281924,Uninstrumented MUL_MAT residual,difference
+smol_p302d,prefill,language/fpga_backend,language,3,897.8776666666666,16.652310150046272,FPGA backend wall (includes host software),measured_wall
+smol_p302d,prefill,language/outside_backend,language,3,3427.0489999999995,7.398195725986103,CPU operators/scheduler and scope residual,difference
+smol_p302d,prefill,language/fpga_backend/mul_mat,language/fpga_backend,3,897.1686666666667,16.6330235475494,Offloaded MUL_MAT backend nodes,measured_wall
+smol_p302d,prefill,language/fpga_backend/other,language/fpga_backend,3,0.7089999999999842,0.02662705391144432,Other FPGA-backend graph work,difference
+smol_p302d,prefill,language/fpga_backend/mul_mat/weight_cache,language/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/dynamic_src0,language/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/activation,language/fpga_backend/mul_mat,3,256.9893333333333,2.8594241261718065,Activation preparation/quantization,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/gemm_call,language/fpga_backend/mul_mat,3,417.73066666666665,16.6854787864578,Accelerator runtime invocation (host + device),measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/dequant,language/fpga_backend/mul_mat,3,215.31366666666665,0.47908280425552596,INT32 output rescaling/dequantization,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/setup,language/fpga_backend/mul_mat,3,2.365333333333333,0.03338163167571845,MUL_MAT setup,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/cache_lookup,language/fpga_backend/mul_mat,3,0.43833333333333335,0.02112660250332112,Packed-weight lookup,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/act_src_lookup,language/fpga_backend/mul_mat,3,1.497,0.025999999999999895,Prepared activation lookup,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/prepack,language/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/gates,language/fpga_backend/mul_mat,3,0.19899999999999998,0.011357816691600542,Dispatch eligibility checks,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/tiling_stats,language/fpga_backend/mul_mat,3,0.24733333333333332,0.014977761292440661,Tiling statistics bookkeeping,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/ffn_consume,language/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/instance_admin,language/fpga_backend/mul_mat,3,0.824,0.009539392014169465,Batch/instance bookkeeping,measured_wall
+smol_p302d,prefill,language/fpga_backend/mul_mat/residual,language/fpga_backend/mul_mat,3,1.5643333333333334,0.054500764520631566,Uninstrumented MUL_MAT residual,difference
+smol_p302d,decode,total,,3,95218.04666666668,1509.1129511846775,Reported phase wall,measured_wall
+smol_p302d,decode,graph,total,3,90317.80033333333,1539.037443617708,Decode graph execution,measured_wall
+smol_p302d,decode,outside_graph,total,3,4900.2463333333335,64.30942961443333,Decode work outside graph,difference
+smol_p302d,decode,graph/fpga_backend,graph,3,56242.254,40.82216357568419,FPGA backend wall (includes host software),measured_wall
+smol_p302d,decode,graph/outside_backend,graph,3,34075.54633333334,1540.826697244805,CPU operators/scheduler and scope residual,difference
+smol_p302d,decode,graph/fpga_backend/mul_mat,graph/fpga_backend,3,55906.12433333333,56.61237781027324,Offloaded MUL_MAT backend nodes,measured_wall
+smol_p302d,decode,graph/fpga_backend/other,graph/fpga_backend,3,336.1296666666676,30.323594119650036,Other FPGA-backend graph work,difference
+smol_p302d,decode,graph/fpga_backend/mul_mat/weight_cache,graph/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/dynamic_src0,graph/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/activation,graph/fpga_backend/mul_mat,3,2287.4966666666664,9.545620793501882,Activation preparation/quantization,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/gemm_call,graph/fpga_backend/mul_mat,3,46347.888,42.9715431884887,Accelerator runtime invocation (host + device),measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/dequant,graph/fpga_backend/mul_mat,3,4457.645333333333,11.189466043263108,INT32 output rescaling/dequantization,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/setup,graph/fpga_backend/mul_mat,3,785.5443333333333,12.168371474167483,MUL_MAT setup,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/cache_lookup,graph/fpga_backend/mul_mat,3,265.7323333333333,2.984625660503067,Packed-weight lookup,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/act_src_lookup,graph/fpga_backend/mul_mat,3,65.96066666666667,1.0792637922831143,Prepared activation lookup,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/prepack,graph/fpga_backend/mul_mat,3,49.40866666666667,0.8317056771077928,Matrix prepacking,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/gates,graph/fpga_backend/mul_mat,3,72.004,0.424871745353813,Dispatch eligibility checks,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/tiling_stats,graph/fpga_backend/mul_mat,3,143.975,12.586577652404168,Tiling statistics bookkeeping,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/ffn_consume,graph/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/instance_admin,graph/fpga_backend/mul_mat,3,666.326,13.12751419728811,Batch/instance bookkeeping,measured_wall
+smol_p302d,decode,graph/fpga_backend/mul_mat/residual,graph/fpga_backend/mul_mat,3,764.1436666666667,2.882303650438876,Uninstrumented MUL_MAT residual,difference
+smol_cpu,prefill,total,,3,62031.76,1147.3031693061748,Reported phase wall,measured_wall
+smol_cpu,prefill,vision,total,3,45200.333333333336,1088.0084252124766,Vision encoding wall,measured_wall
+smol_cpu,prefill,language,total,3,16831.426666666666,59.863976090241216,Language prefill + phase boundary remainder,difference
+smol_cpu,prefill,vision/fpga_backend,vision,3,0,0.0,FPGA backend wall (includes host software),configuration_zero_FPGA_disabled
+smol_cpu,prefill,vision/outside_backend,vision,3,45200.333333333336,1088.0084252124766,CPU operators/scheduler and scope residual,difference
+smol_cpu,prefill,language/fpga_backend,language,3,0,0.0,FPGA backend wall (includes host software),configuration_zero_FPGA_disabled
+smol_cpu,prefill,language/outside_backend,language,3,16831.426666666666,59.863976090241216,CPU operators/scheduler and scope residual,difference
+smol_cpu,decode,total,,3,550446.67,1746.8580696782499,Reported phase wall,measured_wall
+smol_cpu,decode,graph,total,3,544734.2963333334,1823.7748154400622,Decode graph execution,measured_wall
+smol_cpu,decode,outside_graph,total,3,5712.373666666681,103.87136098718604,Decode work outside graph,difference
+smol_cpu,decode,graph/fpga_backend,graph,3,0,0.0,FPGA backend wall (includes host software),configuration_zero_FPGA_disabled
+smol_cpu,decode,graph/outside_backend,graph,3,544734.2963333334,1823.7748154400622,CPU operators/scheduler and scope residual,difference
+smol_fusion,prefill,total,,3,8362.956666666667,10.243067574381135,Reported phase wall,measured_wall
+smol_fusion,prefill,vision,total,3,4987.666666666667,9.018499505645789,Vision encoding wall,measured_wall
+smol_fusion,prefill,language,total,3,3375.2900000000004,1.7570145133151396,Language prefill + phase boundary remainder,difference
+smol_fusion,prefill,vision/fpga_backend,vision,3,3192.9139999999998,6.137499246435728,FPGA backend wall (includes host software),measured_wall
+smol_fusion,prefill,vision/outside_backend,vision,3,1794.7526666666668,4.8730103974170085,CPU operators/scheduler and scope residual,difference
+smol_fusion,prefill,vision/fpga_backend/mul_mat,vision/fpga_backend,3,3192.621,6.132849337787385,Offloaded MUL_MAT backend nodes,measured_wall
+smol_fusion,prefill,vision/fpga_backend/other,vision/fpga_backend,3,0.2929999999998169,0.011269427669782209,Other FPGA-backend graph work,difference
+smol_fusion,prefill,vision/fpga_backend/mul_mat/weight_cache,vision/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/dynamic_src0,vision/fpga_backend/mul_mat,3,398.437,2.673972512947731,Dynamic operand conversion and preparation,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/activation,vision/fpga_backend/mul_mat,3,643.3063333333333,2.494734922458353,Activation preparation/quantization,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/gemm_call,vision/fpga_backend/mul_mat,3,1544.1183333333333,1.7288314936201863,Accelerator runtime invocation (host + device),measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/dequant,vision/fpga_backend/mul_mat,3,597.5073333333333,2.4893457641182346,INT32 output rescaling/dequantization,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/setup,vision/fpga_backend/mul_mat,3,0.967,0.0407798970082074,MUL_MAT setup,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/cache_lookup,vision/fpga_backend/mul_mat,3,0.09266666666666666,0.0030550504633038962,Packed-weight lookup,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/act_src_lookup,vision/fpga_backend/mul_mat,3,0.7263333333333333,0.008082903768654767,Prepared activation lookup,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/prepack,vision/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/gates,vision/fpga_backend/mul_mat,3,0.24566666666666667,0.004041451884327384,Dispatch eligibility checks,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/tiling_stats,vision/fpga_backend/mul_mat,3,0.3443333333333333,0.010692676621563604,Tiling statistics bookkeeping,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/ffn_consume,vision/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/instance_admin,vision/fpga_backend/mul_mat,3,4.314,0.04513313638558697,Batch/instance bookkeeping,measured_wall
+smol_fusion,prefill,vision/fpga_backend/mul_mat/residual,vision/fpga_backend/mul_mat,3,2.5626666666666664,0.08639637338067672,Uninstrumented MUL_MAT residual,difference
+smol_fusion,prefill,language/fpga_backend,language,3,2252.8393333333333,1.8193763583527112,FPGA backend wall (includes host software),measured_wall
+smol_fusion,prefill,language/outside_backend,language,3,1122.4506666666668,2.7533107949038103,CPU operators/scheduler and scope residual,difference
+smol_fusion,prefill,language/fpga_backend/mul_mat,language/fpga_backend,3,2251.8816666666667,1.8126760144421066,Offloaded MUL_MAT backend nodes,measured_wall
+smol_fusion,prefill,language/fpga_backend/other,language/fpga_backend,3,0.9576666666666824,0.026839026311085826,Other FPGA-backend graph work,difference
+smol_fusion,prefill,language/fpga_backend/mul_mat/weight_cache,language/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/dynamic_src0,language/fpga_backend/mul_mat,3,404.701,0.42895104615796753,Dynamic operand conversion and preparation,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/activation,language/fpga_backend/mul_mat,3,625.3283333333333,1.7273541424193504,Activation preparation/quantization,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/gemm_call,language/fpga_backend/mul_mat,3,766.782,1.4922774540949462,Accelerator runtime invocation (host + device),measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/dequant,language/fpga_backend/mul_mat,3,436.24966666666666,0.5583559199411563,INT32 output rescaling/dequantization,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/setup,language/fpga_backend/mul_mat,3,3.0036666666666667,0.06153318887668139,MUL_MAT setup,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/cache_lookup,language/fpga_backend/mul_mat,3,0.44333333333333336,0.0037859388972001857,Packed-weight lookup,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/act_src_lookup,language/fpga_backend/mul_mat,3,1.9763333333333333,0.051983971888778804,Prepared activation lookup,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/prepack,language/fpga_backend/mul_mat,3,0.0,0.0,Matrix prepacking,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/gates,language/fpga_backend/mul_mat,3,0.548,0.009539392014169465,Dispatch eligibility checks,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/tiling_stats,language/fpga_backend/mul_mat,3,0.651,0.044530888156424614,Tiling statistics bookkeeping,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/ffn_consume,language/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/instance_admin,language/fpga_backend/mul_mat,3,7.472666666666667,0.15575728982405068,Batch/instance bookkeeping,measured_wall
+smol_fusion,prefill,language/fpga_backend/mul_mat/residual,language/fpga_backend/mul_mat,3,4.726333333333334,0.033605555096342714,Uninstrumented MUL_MAT residual,difference
+smol_fusion,decode,total,,3,93104.75666666667,562.7046635965679,Reported phase wall,measured_wall
+smol_fusion,decode,graph,total,3,88044.96399999999,559.0490363778474,Decode graph execution,measured_wall
+smol_fusion,decode,outside_graph,total,3,5059.792666666671,31.207817263202184,Decode work outside graph,difference
+smol_fusion,decode,graph/fpga_backend,graph,3,56261.191,115.93521930802852,FPGA backend wall (includes host software),measured_wall
+smol_fusion,decode,graph/outside_backend,graph,3,31783.772999999997,462.66485666300196,CPU operators/scheduler and scope residual,difference
+smol_fusion,decode,graph/fpga_backend/mul_mat,graph/fpga_backend,3,55888.170666666665,113.7135473474163,Offloaded MUL_MAT backend nodes,measured_wall
+smol_fusion,decode,graph/fpga_backend/other,graph/fpga_backend,3,373.0203333333314,2.2971757297498505,Other FPGA-backend graph work,difference
+smol_fusion,decode,graph/fpga_backend/mul_mat/weight_cache,graph/fpga_backend/mul_mat,3,0.0,0.0,Weight cache creation/lookup work,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/dynamic_src0,graph/fpga_backend/mul_mat,3,0.0,0.0,Dynamic operand conversion and preparation,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/activation,graph/fpga_backend/mul_mat,3,2295.001,10.818995008779577,Activation preparation/quantization,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/gemm_call,graph/fpga_backend/mul_mat,3,46310.06,55.25611529052546,Accelerator runtime invocation (host + device),measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/dequant,graph/fpga_backend/mul_mat,3,4424.6140000000005,41.507944384177705,INT32 output rescaling/dequantization,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/setup,graph/fpga_backend/mul_mat,3,813.5203333333333,7.565937967848639,MUL_MAT setup,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/cache_lookup,graph/fpga_backend/mul_mat,3,277.2556666666667,13.37958659052416,Packed-weight lookup,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/act_src_lookup,graph/fpga_backend/mul_mat,3,72.96433333333334,7.793269810120358,Prepared activation lookup,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/prepack,graph/fpga_backend/mul_mat,3,46.839333333333336,0.48670559205060904,Matrix prepacking,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/gates,graph/fpga_backend/mul_mat,3,69.02533333333334,0.867438374372115,Dispatch eligibility checks,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/tiling_stats,graph/fpga_backend/mul_mat,3,127.11166666666666,5.697199341196817,Tiling statistics bookkeeping,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/ffn_consume,graph/fpga_backend/mul_mat,3,0.0,0.0,Prepared FFN consumption,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/instance_admin,graph/fpga_backend/mul_mat,3,662.4929999999999,9.582463201077267,Batch/instance bookkeeping,measured_wall
+smol_fusion,decode,graph/fpga_backend/mul_mat/residual,graph/fpga_backend/mul_mat,3,789.286,14.205364761244269,Uninstrumented MUL_MAT residual,difference

@@ -1,0 +1,15 @@
+# Preserve distributed bytes so SHA256SUMS also works after Git checkout.
+* -text
+*.sh text eol=lf
+*.py text eol=lf
+*.v text eol=lf
+*.vh text eol=lf
+*.sv text eol=lf
+*.f text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.md text eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.pdf binary
